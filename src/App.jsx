@@ -1,5 +1,14 @@
 import React from 'react';
+import { useViewportSize } from './hooks/useViewportSize';
 
-const App = () => <h1>Шаблон React + Webpack</h1>;
+function Demo() {
+  const { width, height } = useViewportSize();
 
-export default App;
+  return (
+    <div>
+      Width: {width}, height: {height}
+    </div>
+  );
+}
+
+export default Demo;
