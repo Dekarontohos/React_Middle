@@ -1,5 +1,14 @@
 import React from 'react';
+import { useToggle } from './hooks/useToggle';
 
-const App = () => <h1>Шаблон React + Webpack</h1>;
+function Demo() {
+  const [value, toggle] = useToggle(['blue', 'orange', 'cyan', 'teal']);
 
-export default App;
+  return (
+    <button onClick={() => toggle()}>
+      {value.toString()}
+    </button>
+  );
+}
+
+export default Demo;
