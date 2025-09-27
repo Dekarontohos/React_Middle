@@ -1,5 +1,17 @@
 import React from 'react';
+import { useWindowScroll } from './hooks/useWindowScroll';
 
-const App = () => <h1>Шаблон React + Webpack</h1>;
+function Demo() {
+  const [scroll, scrollTo] = useWindowScroll();
 
-export default App;
+  return (
+    <div style={{ height: '200vh', padding: 20, marginTop: scroll.y, marginRight: scroll.x }}>
+      <p>
+        Scroll position x: {scroll.x}, y: {scroll.y}
+      </p>
+      <button onClick={() => scrollTo({ y: 0 })}>Scroll to top</button>
+    </div>
+  );
+}
+
+export default Demo;
