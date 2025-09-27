@@ -9,7 +9,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default {
 	context: path.resolve(__dirname, "src"),
-	entry: "./index.jsx",
+	entry: "./index.tsx",
 	output: {
 		filename: "[name].[contenthash].js",
 		path: path.resolve(__dirname, "dist"),
@@ -58,13 +58,13 @@ export default {
 				},
 			},
 			{
-				test: /\.ts?$/,
+				test: /\.tsx?$/,
 				use: "ts-loader",
 				exclude: /node_modules/,
 			},
 		],
 	},
 	resolve: {
-		extensions: [".ts", ".js", ".jsx"],
+		extensions: [".ts", ".js", ".jsx", ".tsx"],
 	},
 };
