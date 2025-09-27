@@ -16,7 +16,15 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": false
   },
-  "include": ["./src/**/*.ts", "src/@types", "src/index.jsx"]
+  "include": ["./src/**/*.ts", "src/@types", "src/index.tsx", "src/hooks/**/*.tsx"]
 }
