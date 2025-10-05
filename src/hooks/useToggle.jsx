@@ -1,4 +1,4 @@
-import { useReducer, useMemo } from 'react';
+import { useReducer, useMemo, useCallback } from 'react';
 
 export function useToggle(values) {
   const options = useMemo(() => {
@@ -8,8 +8,8 @@ export function useToggle(values) {
     return [true, false];
   }, [values]);
 
-  function reducer(state, action) {
-    if (action === undefined) {
+  const reducer = useCallback((state, action) => {
+    if (typeof action === 'undefined') {
       return (state + 1) % options.length;
     }
 
@@ -19,11 +19,12 @@ export function useToggle(values) {
     }
 
     return state;
-  }
+  }, [options]);
 
   const [index, dispatch] = useReducer(reducer, 0);
   const value = options[index];
-  const toggle = (val) => dispatch(val);
+
+  const toggle = useCallback((val) => dispatch(val), [dispatch]);
 
   return [value, toggle];
 }
